@@ -12,7 +12,7 @@
   <title>SB Admin 2 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  @include('includes.style')
+  @include('includes.admin.style')
 
 </head>
 
@@ -22,7 +22,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    @include('includes.sidebar')
+    @include('includes.admin.sidebar')
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -32,7 +32,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        @include('includes.navbar')
+        @include('includes.admin.navbar')
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -44,7 +44,7 @@
       </div>
       <!-- End of Main Content -->
 
-        @include('includes.footer')
+        @include('includes.admin.footer')
 
     </div>
     <!-- End of Content Wrapper -->
@@ -77,7 +77,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  @include('includes.script')
+  @include('includes.admin.script')
 
 </body>
 
