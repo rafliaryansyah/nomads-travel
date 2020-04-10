@@ -18,6 +18,12 @@ Route::get('/', 'HomeController@index')
 
 Route::get('/detail', 'DetailController@index')
     ->name('detail');
+    
+Route::get('/checkout', 'CheckoutController@index')
+    ->name('checkout');
+    
+Route::get('/checkout/success', 'CheckoutController@success')
+    ->name('checkout-success');
 
 Route::prefix('admin')
     ->namespace('Admin')

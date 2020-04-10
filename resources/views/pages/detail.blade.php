@@ -109,7 +109,7 @@
                         </table>
                     </div>
                     <div class="join-cointainer">
-                        <a href="checkout.html" class="btn btn-block btn-join-now py-2">
+                        <a href="{{ route('checkout') }}" class="btn btn-block btn-join-now py-2">
                             Join Now
                         </a>
                     </div>
