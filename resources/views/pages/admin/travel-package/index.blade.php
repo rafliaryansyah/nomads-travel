@@ -43,7 +43,7 @@
                                     <form action="{{ route('travel-package.destroy', $item->id) }}" method="POST" class=" d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin didelete')">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                     </form>
