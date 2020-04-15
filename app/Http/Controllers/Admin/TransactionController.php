@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\GalleryRequest;
-use App\Gallery;
-use App\TravelPackage;
+use App\Http\Requests\Admin\TransactionRequest;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class GalleryController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +17,10 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $items = Gallery::with(['travel_package'])->get();
-        
-        return view('pages.admin.gallery.index', compact('items'));
+        $items = Transaction::with([
+            'details', 'travel_package', 'user'
+        ])->get();
+        return view('pages.admin.transaction.index', compact('items'));
     }
 
     /**
@@ -30,10 +30,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        $travel_packages = TravelPackage::all();
-        return view('pages.admin.gallery.create', [
-            'travel_packages' => $travel_packages
-        ]);
+        //
     }
 
     /**
@@ -42,15 +39,13 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GalleryRequest $request)
+    public function store(TransactionRequest $request)
     {
         $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery', 'public'
-        );
+        $data['slug'] = Str::slug($request->title);
 
-        Gallery::create($data);
-        return redirect()->route('gallery.index');
+        Transaction::create($data);
+        return redirect()->route('transaction.index');
     }
 
     /**
@@ -61,7 +56,11 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Transaction::with([
+            'details', 'travel_package', 'user'
+        ])->findOrFail($id);
+
+        return view('pages.admin.transaction.detail', compact('item'));
     }
 
     /**
@@ -72,8 +71,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $item = TravelPackage::FindOrFail($id);
-        return view('pages.admin.travel-package.edit', ['item' => $item]);
+        $item = Transaction::FindOrFail($id);
+        return view('pages.admin.transaction.edit', ['item' => $item]);
     }
 
     /**
@@ -83,28 +82,17 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'location' => 'required',
-            'about' => 'required',
-            'featured_event' => 'required',
-            'language' => 'required',
-            'foods' => 'required',
-            'depatured_date' => 'required',
-            'duration' => 'required',
-            'type' => 'required',
-            'price' => 'required'
-        ]);
+
 
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
 
-        $item = TravelPackage::FindOrFail($id);
+        $item = Transaction::FindOrFail($id);
         $item->update($data);
 
-        return redirect()->route('travel-package.index');
+        return redirect()->route('transaction.index');
     }
 
     /**
@@ -115,9 +103,9 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        $item = TravelPackage::findOrFail($id);
+        $item = Transaction::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('travel-package.index');
+        return redirect()->route('transaction.index');
     }
 }

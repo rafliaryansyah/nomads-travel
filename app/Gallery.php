@@ -9,9 +9,9 @@ class Gallery extends Model
 {
 
     use SoftDeletes;
-    
+
     protected $fillable = [
-        'travel_packages_id', 'image',
+        'travel_packages_id', 'image'
     ];
 
     protected $hidden = [
@@ -25,3 +25,4 @@ class Gallery extends Model
 
 
 }
+    
