@@ -9,9 +9,7 @@
     @stack('addon-style')
 </head>
 <body>
-    @include('includes.frontend.navbar')
     @yield('content')
-    @include('includes.frontend.footer')
     @stack('prepend-script')
     @include('includes.frontend.script')
     @stack('addon-script')

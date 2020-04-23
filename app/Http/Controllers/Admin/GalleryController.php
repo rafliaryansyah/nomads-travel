@@ -85,19 +85,6 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'location' => 'required',
-            'about' => 'required',
-            'featured_event' => 'required',
-            'language' => 'required',
-            'foods' => 'required',
-            'depatured_date' => 'required',
-            'duration' => 'required',
-            'type' => 'required',
-            'price' => 'required'
-        ]);
-
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
 

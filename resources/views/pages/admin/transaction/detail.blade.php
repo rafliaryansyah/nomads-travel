@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Detail Transaksi {{ $item->user->name }}</h1>
+      {{-- <h1 class="h3 mb-0 text-gray-800">Detail Transaksi {{ $item->user->name }}</h1> --}}
     </div>
 
     @if ($errors->any())
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>Pembeli</th>
-                    <td>{{ $item->user->name }}</td>
+                    {{-- <td>{{ $item->user->name }}</td> --}}
                 </tr>
                 <tr>
                     <th>Additional Visa</th>
