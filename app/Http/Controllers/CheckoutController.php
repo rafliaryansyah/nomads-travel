@@ -29,8 +29,6 @@ class CheckoutController extends Controller
 
         $transaction->save();
 
-        return $transaction;
-
         Mail::to($transaction->user)->send(
             new TransactionSuccess($transaction)
         );
