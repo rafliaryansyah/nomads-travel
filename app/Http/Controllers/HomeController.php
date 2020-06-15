@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\TravelPackage;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -15,6 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         $items = TravelPackage::with(['galleries'])->get();
-        return view('pages.home', compact('items'));
+        return view('pages.home', [
+            'items' => $items,
+            'user' => User::count()
+        ]);
     }
 }

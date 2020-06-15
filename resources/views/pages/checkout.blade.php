@@ -115,7 +115,6 @@
                                      
                                  </select>
                                  
-                                 <label for="doePassport" class="sr-only">DOE Passport</label>
                                  <div class="input-group mb-2 mr-sm-2">
                                      <input type="text" class="form-control datepicker" name="doe_passport" id="doePassport" placeholder="DOE Passport">
                                  </div>

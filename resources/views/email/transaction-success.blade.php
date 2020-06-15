@@ -213,7 +213,7 @@
                         <tbody>
                           <tr>
                             <td style="width:550px;">
-                              <img alt="" height="auto" src="{{ $data->travel_package->galleries->[0]->image }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                              <img alt="" height="auto" src="{{ url($data->travel_package->galleries[1]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                             </td>
                           </tr>
                         </tbody>
@@ -267,7 +267,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                           <tr>
                             <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                              <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:20px;text-align:left;color:#071C4D;">Hi, {{ $data->user->name }} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong>#{{ $data-id }}</strong></div>
+                              <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:20px;text-align:left;color:#071C4D;">Hi, {{ $data->user->name }} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong>#{{ $data->id }}</strong></div>
                             </td>
                           </tr>
                           <tr>
@@ -278,7 +278,7 @@
                                 </tr>
                                 @foreach ($data->details as $detail)
                                 <tr>
-                                  <td><strong>{{} $detail->username }}</strong></td>
+                                  <td><strong>{{ $detail->username }}</strong></td>
                                   <td style="text-align: right;">{{ $detail->nationaility }}</td>
                                 </tr>
                                 @endforeach
@@ -307,7 +307,7 @@
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                 <tr>
                                   <td align="center" bgcolor="#FF9E53" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#FF9E53;" valign="middle">
-                                    <p style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </p>
+                                    <a href="{{ url('checkout/' . $data->id ) }}" style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
                                   </td>
                                 </tr>
                               </table>
@@ -409,7 +409,7 @@
                       <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                         <tr>
                           <td style="width: 50px;">
-                            <img src="{{ url('backend/email/images/ic_support@2x.png') }}" width="50px">
+                            <img src="{{ url('email/images/ic_support@2x.png') }}" width="50px">
                           </td>
                           <td style="font-size: 18px; padding-left: 10px; color: #071C4D;font-family: Assistant, Helvetica, Arial, sans-serif"> support@nomads.id <br> 021-2019-2022 </td>
                         </tr>
@@ -459,7 +459,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:30px;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
-                      <div style="font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;line-height:1;text-align:center;color:#888B93;">2019 Nomads Copyright All Rights Reserved.</div>
+                      <div style="font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;line-height:1;text-align:center;color:#888B93;">2020 Nomads Copyright All Rights Reserved.</div>
                     </td>
                   </tr>
                 </table>

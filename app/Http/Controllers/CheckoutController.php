@@ -25,9 +25,11 @@ class CheckoutController extends Controller
     {
         $transaction = Transaction::with(['details', 'travel_package.galleries', 'user'])
         ->findOrFail($id);
-        $transaction->Transaction_status = "PENDING";
+        $transaction->transaction_status = 'PENDING';
 
         $transaction->save();
+
+        // return $transaction;
 
         Mail::to($transaction->user)->send(
             new TransactionSuccess($transaction)
@@ -39,9 +41,9 @@ class CheckoutController extends Controller
     public function create(Request $request, $id)
     {
         $request->validate([
-            'username' => 'requried|string|exists:users,username',
-            'nationaility' => 'requried',
-            'is_visa' => 'requried|boolean',
+            'username' => 'required|string|exists:users,username',
+            'nationaility' => 'required',
+            'is_visa' => 'required|boolean',
             'doe_passport' => 'required'
         ]); 
 
@@ -100,7 +102,7 @@ class CheckoutController extends Controller
         TransactionDetail::create([
             'transactions_id' => $transaction->id,
             'username' => Auth::user()->username,
-            'nationaility' => Auth::user()->nationaility,
+            'nationaility' => 'ID',
             'is_visa' => false,
             'doe_passport' => Carbon::now()->addYear(5),
         ]);

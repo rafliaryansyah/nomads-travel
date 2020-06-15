@@ -5,7 +5,7 @@
 <main class="login-container">
     <div class="container">
         <div class="row page-login d-flex align items-center">
-            <div class="section-right col-12 col-md-4">
+            <div class="section-right col-12 col-md-4 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center">

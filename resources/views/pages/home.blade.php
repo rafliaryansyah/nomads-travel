@@ -13,7 +13,7 @@
       <br/>
       moment you never see before
     </p>
-    <a href="#" class="btn btn-get-started px-4 mt-4">Get Started</a>
+    <a href="{{ url('register') }}" class="btn btn-get-started px-4 mt-4">Get Started</a>
   </header>
 
   <main>
@@ -25,19 +25,19 @@
     <div class="container">
       <section class="section-stats row justify-content-center">
         <div class="col-3 col-md-2 stats-detail">
-          <h2>20K</h2>
+          <h2>{{ $user }} K</h2>
           <p>Members</p>
         </div>
         <div class="col-3 col-md-2 stats-detail">
-          <h2>12</h2>
+          <h2>0</h2>
           <p>Countries</p>
         </div>
         <div class="col-3 col-md-2 stats-detail">
-          <h2>3K</h2>
+          <h2>0</h2>
           <p>Hotel</p>
         </div>
         <div class="col-3 col-md-2 stats-detail">
-          <h2>72</h2>
+          <h2>0</h2>
           <p>Partners</p>
         </div>
       </section>
@@ -170,7 +170,7 @@
           <a href="#" class="btn btn-need-help px-4 mt-4 mx-1">
             I Need Help
           </a>
-          <a href="" class="btn btn-get-started px-4 mt-4 mx-1">
+          <a href="{{ url('register') }}" class="btn btn-get-started px-4 mt-4 mx-1">
             Get Started
           </a>
         </div>
