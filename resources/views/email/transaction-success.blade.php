@@ -13,21 +13,18 @@
     #outlook a {
       padding: 0;
     }
-
     body {
       margin: 0;
       padding: 0;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     }
-
     table,
     td {
       border-collapse: collapse;
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
     }
-
     img {
       border: 0;
       height: auto;
@@ -36,7 +33,6 @@
       text-decoration: none;
       -ms-interpolation-mode: bicubic;
     }
-
     p {
       display: block;
       margin: 13px 0;
@@ -74,7 +70,6 @@
       table.mj-full-width-mobile {
         width: 100% !important;
       }
-
       td.mj-full-width-mobile {
         width: auto !important;
       }
@@ -113,7 +108,7 @@
                         <tbody>
                           <tr>
                             <td style="width:150px;">
-                              <img alt="" height="auto" src="{{ url("backend/email/images/logo@2x.png") }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                              <img alt="" height="auto" src="{{ url('frontend/images/logo@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
                             </td>
                           </tr>
                         </tbody>
@@ -213,7 +208,7 @@
                         <tbody>
                           <tr>
                             <td style="width:550px;">
-                              <img alt="" height="auto" src="{{ url($data->travel_package->galleries[1]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                            <img alt="" height="auto" src="{{ url($data->travel_package->galleries[0]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                             </td>
                           </tr>
                         </tbody>
@@ -276,10 +271,10 @@
                                 <tr>
                                   <td colspan="3">Members</td>
                                 </tr>
-                                @foreach ($data->details as $detail)
+                                @foreach ($data->details as $item)
                                 <tr>
-                                  <td><strong>{{ $detail->username }}</strong></td>
-                                  <td style="text-align: right;">{{ $detail->nationaility }}</td>
+                                  <td><strong>{{ $item->username }}</strong></td>
+                                  <td style="text-align: right;">{{ $item->nationality }}</td>
                                 </tr>
                                 @endforeach
                               </table>
@@ -293,11 +288,11 @@
                                 </tr>
                                 <tr>
                                   <td><strong>Departure</strong></td>
-                                  <td style="text-align: right;">{{ $data->travel_package->title }}</td>
+                                <td style="text-align: right;">{{ $data->travel_package->title }}</td>
                                 </tr>
                                 <tr>
                                   <td><strong>Date and Time</strong></td>
-                                  <td style="text-align: right;">{{ $data->travel_package->depatured_date }}</td>
+                                  <td style="text-align: right;">{{ $data->travel_package->departure_date }}</td>
                                 </tr>
                               </table>
                             </td>
@@ -409,7 +404,7 @@
                       <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                         <tr>
                           <td style="width: 50px;">
-                            <img src="{{ url('email/images/ic_support@2x.png') }}" width="50px">
+                            <img src="{{ url('frontend/images/ic_support@2x.png') }}" width="50px">
                           </td>
                           <td style="font-size: 18px; padding-left: 10px; color: #071C4D;font-family: Assistant, Helvetica, Arial, sans-serif"> support@nomads.id <br> 021-2019-2022 </td>
                         </tr>
@@ -459,7 +454,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;padding-top:30px;padding-right:25px;padding-bottom:0px;padding-left:25px;word-break:break-word;">
-                      <div style="font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;line-height:1;text-align:center;color:#888B93;">2020 Nomads Copyright All Rights Reserved.</div>
+                      <div style="font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;line-height:1;text-align:center;color:#888B93;">2019 Nomads Copyright All Rights Reserved.</div>
                     </td>
                   </tr>
                 </table>
