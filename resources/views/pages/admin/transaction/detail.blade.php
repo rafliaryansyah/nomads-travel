@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>Pembeli</th>
-                    {{-- <td>{{ $item->user->name }}</td> --}}
+                    <td>{{ $item->user->name }}</td>
                 </tr>
                 <tr>
                     <th>Additional Visa</th>

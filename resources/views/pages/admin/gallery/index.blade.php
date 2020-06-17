@@ -28,7 +28,7 @@
                         @forelse ($items as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>Gunung Bromo</td>
+                                <td>{{ $item->travel_package->title }}</td>
                                 <td>
                                     <img src="{{ Storage::url($item->image) }}" alt="" style="width: 200px" class="img-thumbnail">
                                 </td>

@@ -109,9 +109,16 @@
                             </div>
                             <button class="btn btn-login btn-block" type="submit">
                                 Sig In
-                            </button> 
+                            </button>
+                            
+                            
                             @if (Route::has('password.request'))
-                            <p class="text-center mt-4">
+                            <p class="text-center">
+                                <a href="{{ route('register') }}" class="btn btn-link">
+                                    Registrasi
+                                </a>
+                            </p>
+                            <p class="text-center">
                                 <a href="{{ route('password.request') }}" class="btn btn-link">
                                     Saya lupa password
                                 </a>

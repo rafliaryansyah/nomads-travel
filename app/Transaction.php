@@ -25,10 +25,11 @@ class Transaction extends Model
 
     public function travel_package()
     {
-        return $this->belongsTo( TravelPackage::class, 'travel_packages_id', 'id' );
+        return $this->belongsTo(TravelPackage::class, 'travel_packages_id', 'id');
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo( User::class, 'user_id', 'id' );
     }
 
