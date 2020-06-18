@@ -66,7 +66,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('pages.admin.category.edit', compact('category'));
     }
 
     /**
@@ -78,7 +79,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = [
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
+        ];
+
+        Category::whereId($id)->update($category);
+
+        return redirect()->route('category.index');
+
     }
 
     /**
