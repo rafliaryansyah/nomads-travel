@@ -15,10 +15,9 @@ class Category extends Model
         'name', 'slug'
     ];
 
-    protected $hidden = [
-
-    ];
-
-    
+    public function travel_package()
+    {
+        return $this->hasMany('App\TravelPackage');
+    }
     
 }

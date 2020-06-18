@@ -29,7 +29,13 @@
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                <input type="text" class="form-control" name="location" id="location" value="{{ old('location') }}">
+                <select name="location_category_id" required class="form-control">
+                    @foreach($category as $result)
+                        <option value="{{ $result->id }}">
+                            {{ $result->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="about">About</label>

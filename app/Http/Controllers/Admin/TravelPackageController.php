@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TravelPackageRequest;
 use App\TravelPackage;
@@ -17,7 +18,7 @@ class TravelPackageController extends Controller
      */
     public function index()
     {
-        $items = TravelPackage::all();
+        $items = TravelPackage::paginate();
         return view('pages.admin.travel-package.index', compact('items'));
     }
 
@@ -28,7 +29,9 @@ class TravelPackageController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.travel-package.create');
+        $items = TravelPackage::paginate(10);
+        $category = Category::all();
+        return view('pages.admin.travel-package.create', compact('items', 'category'));
     }
 
     /**
@@ -39,10 +42,25 @@ class TravelPackageController extends Controller
      */
     public function store(TravelPackageRequest $request)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        // $data = $request->all();
+        // $data['location_category_id'] = $request->location_category_id;
+        // $data['slug'] = Str::slug($request->title);
 
-        TravelPackage::create($data);
+        $data = TravelPackage::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'location_category_id' => $request->location_category_id,
+            'about' => $request->about,
+            'featured_event' => $request->featured_event,
+            'language' => $request->language,
+            'foods' => $request->foods,
+            'depatured_date' => $request->depatured_date,
+            'duration' => $request->duration,
+            'type' => $request->type,
+            'price' => $request->price
+        ]);
+
+        // TravelPackage::create($data);
         return redirect()->route('travel-package.index');
     }
 

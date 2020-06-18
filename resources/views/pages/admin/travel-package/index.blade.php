@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->location}}</td>
+                                <td>{{ $item->category->name }}</td>
                                 <td>{{ $item->type }}</td>
                                 <td>{{ $item->depatured_date}}</td>
                                 <td>{{ $item->type}}</td>
