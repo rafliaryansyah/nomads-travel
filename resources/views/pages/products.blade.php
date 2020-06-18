@@ -15,7 +15,7 @@
                                 Paket Travel
                             </li>
                             <li class="breadcrumb-item active">
-                                Products
+                                Paket Travel
                             </li>
                         </ol>
                     </nav>
@@ -28,7 +28,7 @@
                         <h2>By Category</h2>
                         <table class="trip-informations">
                             <tr>
-                                <th width="50%">Sumatra</th>
+                                <a href="#"><th width="50%">ASDASD</th></a>
                             </tr>   
                             <tr>
                                 <th width="50%">Borneo</th>
@@ -56,16 +56,16 @@
                 </div>
                 <div class="col-lg-9 pl-lg-0">
                     <div class="card card-details mb-1">
-                        <section class="section-popular-content" id="popularContent">
+                        <section class="section-popular-content" id="popularContent" style="min-height: 380px;">
                             <div class="container">
-                              <div class="section-popular-travel row justify-content-center" style="min-height: 100px !important;">
+                              <div class="section-popular-travel row" >
                                 @foreach ($items as $item)
-                                <div class="col-sm-6 col-md-4 col-lg-3">
-                                  <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ $item->galleries->count() ? Storage::url($item->galleries->first()->image) : '' }}');">
+                                <div class="col-sm-6 col-md-4 col-lg-3" >
+                                  <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ $item->galleries->count() ? Storage::url($item->galleries->first()->image) : '' }}'); min-height: 280px !important;">
                                     <div class="travel-country">{{ $item->location }}</div>
                                       <div class="travel-location">{{ $item->title }}</div>
                                       <div class="travel-button mt-auto">
-                                      <a href="{{ route('detail', $item->slug) }}" class="btn btn-travel-details px-4">View Details</a>
+                                      <a href="{{ route('detail', $item->slug) }}" class="btn btn-travel-details px-2">Detail</a>
                                       </div>
                                   </div>
                                 </div>
