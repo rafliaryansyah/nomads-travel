@@ -19,7 +19,7 @@ class GalleryController extends Controller
     public function index()
     {
         $items = Gallery::with(['travel_package'])->get();
-        //  dd($items);
+        // dd($items);
         return view('pages.admin.gallery.index', compact('items'));
     }
 

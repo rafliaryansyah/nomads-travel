@@ -11,46 +11,27 @@
                 <div class="col p-0">
                     <nav>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                Paket Travel
-                            </li>
                             <li class="breadcrumb-item active">
-                                Paket Travel
+                                Paket Travel    /
                             </li>
                         </ol>
                     </nav>
                 </div>
             </div>
-            <div class="row">
-                
-                <div class="col-lg-3">
-                    <div class="card card-details card-right">
-                        <h2>By Category</h2>
+            <div class="row mx-auto">
+                <div class="col-lg-3 pl-lg-0">
+                    <div class="card card-details mb-1">
+                        <h2>By Location</h2>
                         <table class="trip-informations">
-                            <tr>
-                                <a href="#"><th width="50%">ASDASD</th></a>
-                            </tr>   
-                            <tr>
-                                <th width="50%">Borneo</th>
-                            </tr>
-                            <tr>
-                                <th width="50%">Java</th>
-                            </tr>
-                            <tr>
-                                <th width="50%">Sulawesi</th>
-                            </tr>
-                            <tr>
-                                <th width="50%">Papua</th>
-                            </tr>
-                        </table>
-                        <h2 class="mt-2">By Price</h2>
-                        <table class="trip-informations">
-                            <tr>
-                                <th width="50%">$0 - $100</th>
-                            </tr>   
-                            <tr>
-                                <th width="50%">$100 - $500</th>
-                            </tr>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <th>
+                                        <a href="{{ route('travel.category', $category->slug) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </th>
+                                </tr>
+                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -61,7 +42,7 @@
                               <div class="section-popular-travel row" >
                                 @foreach ($items as $item)
                                 <div class="col-sm-6 col-md-4 col-lg-3" >
-                                  <div class="card-travel text-center d-flex flex-column" style="background-image: url('{{ $item->galleries->count() ? Storage::url($item->galleries->first()->image) : '' }}'); min-height: 280px !important;">
+                                  <div class="card-travel text-center d-flex flex-column" >
                                     <div class="travel-country">{{ $item->location }}</div>
                                       <div class="travel-location">{{ $item->title }}</div>
                                       <div class="travel-button mt-auto">
@@ -72,7 +53,7 @@
                                 @endforeach
                               </div>
                             </div>
-                          </section>
+                        </section>
                 </div>
             </div>
         </div>

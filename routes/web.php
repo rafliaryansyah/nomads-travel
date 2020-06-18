@@ -19,6 +19,9 @@ Route::get('/', 'HomeController@index')
 Route::get('/travel-package', 'ProductController@index')
             ->name('products');
 
+Route::get('/travel-package/{category}', 'ProductController@category')
+            ->name('travel.category');
+
 Route::get('/detail/{slug}', 'DetailController@index')
             ->name('detail');
 

@@ -17,7 +17,13 @@ class Category extends Model
 
     public function travel_package()
     {
-        return $this->hasMany('App\TravelPackage');
+        return $this->hasMany('App\TravelPackage', 'location_category_id', 'id');
+    }
+    
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
     
 }
