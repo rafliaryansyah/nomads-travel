@@ -6,9 +6,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Paket Travel</h1>
+      <h1 class="h3 mb-0 text-gray-800">Gambar Paket</h1>
       <a href="{{ route('gallery.create') }}" class="btn btn-sm btn-primary shadow-sm">
-          <i class="fas fa fw fa-plus fa-sm text-white-50"></i> Tambah Paket Travel
+          <i class="fas fa fw fa-plus fa-sm text-white-50"></i> Tambah Gambar Paket
       </a>
     </div>
 
