@@ -73,11 +73,6 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card card-details card-right">
-                        <h2>Members are going</h2>
-                        <div class="members my-2">
-                            <img src="{{ url('frontend/assets/images/members.png') }}" alt="" class="member-image">
-                        </div>
-                        <hr>
                         <h2>Trip Infomartion</h2>
                         <table class="trip-informations">
                             <tr>
@@ -112,6 +107,36 @@
                                 Login or Register to Join
                             </a>
                         @endguest
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-8 pl-lg-0">
+                    <div class="card card-details mb-1">
+                        @auth
+                            <form action="{{ route('travel.comment.store', $item) }}" method="post">
+                                @csrf
+                                <textarea class="form-control" id="" name="comment" cols="30" rows="2" placeholder="Berikan komentar anda..."></textarea>
+                                <button class="btn btn-block btn-join-now" type="submit">Komentar!</button>
+                            </form>
+                        @endauth
+                        @guest
+                            <a href="{{ route('login') }}" class="btn btn-block btn-join-now mt-3 py-2">
+                                Login or Register for comment
+                            </a>
+                        @endguest
+                        <h1 class="mt-3">Komentar mereka...</h1>
+                            @foreach ($item->comment()->get() as $comment)
+                                <div class="form-group row container mt-3">
+                                    <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}" alt="Name Account" height="60">
+                                        <div class="text-left ml-2">
+                                            {{ $comment->user->name }}
+                                            <br>
+                                            <p>{{ $comment->comment }}</p>
+                                        </div>
+                                </div>
+                            @endforeach
+                          </div>
                     </div>
                 </div>
             </div>

@@ -84,7 +84,9 @@ class TravelPackageController extends Controller
     public function edit($id)
     {
         $item = TravelPackage::FindOrFail($id);
-        return view('pages.admin.travel-package.edit', ['item' => $item]);
+        $category = Category::all();
+        dd($item);
+        return view('pages.admin.travel-package.edit', compact('item', 'category'));
     }
 
     /**
@@ -98,7 +100,7 @@ class TravelPackageController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'location' => 'required',
+            'location_category_id' => 'required',
             'about' => 'required',
             'featured_event' => 'required',
             'language' => 'required',

@@ -1,7 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-
+@if(count($errors)>0)
+  	@foreach($errors->all() as $error)
+  	<div class="alert alert-danger" role="alert">
+      {{ $error }}
+	</div>  		
+  	@endforeach
+  @endif
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -21,7 +27,15 @@
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                <input type="text" class="form-control @error('location') is-invalid @enderror" name="location" id="location" value="{{ $item->location }}">
+                <select name="location_category_id" required class="form-control">
+                    @foreach($category as $result)
+                        <option value="{{ $result->id }}"
+                            @if ($result->id == $item->location_category_id)
+                                selected
+                            @endif
+                        >{{ $result->name }}</option>
+                    @endforeach
+                </select>
                 @error('location') <div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
             <div class="form-group">

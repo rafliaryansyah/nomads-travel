@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navb">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item mx-md-2">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item mx-md-2">
-          <a class="nav-link" href="#">Paket Travel</a>
+          <a class="nav-link" href="{{ route('products') }}">Paket Travel</a>
         </li>
       </ul>
 

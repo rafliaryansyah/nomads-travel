@@ -20,6 +20,11 @@ class TravelPackage extends Model
 
     ];
 
+    public function details()
+    {
+        return $this->hasMany( TransactionDetail::class, 'transactions_id', 'id' );
+    }
+
     public function galleries()
     {
         return $this->hasMany( Gallery::class, 'travel_packages_id', 'id' );
@@ -30,6 +35,10 @@ class TravelPackage extends Model
         return $this->belongsTo(Category::class, 'location_category_id', 'id');
     }
 
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'travel_packages_id', 'id');
+    }
 
     
 

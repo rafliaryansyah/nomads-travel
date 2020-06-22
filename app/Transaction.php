@@ -11,12 +11,17 @@ class Transaction extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'travel_packages_id', 'user_id', 'additional_visa', 'transaction_total', 'transaction_status'
+        'travel_packages_id', 'user_id', 'additional_visa',
+        'transaction_total', 'transaction_status'
     ];
 
     protected $hidden = [
 
     ];
+
+    public function galleries(){
+        return $this->hasMany( Gallery::class, 'travel_packages_id', 'id' );
+    }
 
     public function details()
     {
@@ -25,8 +30,8 @@ class Transaction extends Model
 
     public function travel_package()
     {
-        return $this->belongsTo(TravelPackage::class, 'travel_packages_id', 'id');
-    }
+        return $this->belongsTo( TravelPackage::class, 'travel_packages_id', 'id' );
+    }   
 
     public function user()
     {

@@ -25,6 +25,9 @@ Route::get('/travel-package/{category}', 'ProductController@category')
 Route::get('/detail/{slug}', 'DetailController@index')
             ->name('detail');
 
+Route::post('/detail/{slug}/comment', 'TravelPackageCommentController@store')
+            ->name('travel.comment.store');
+
 Route::post('/checkout/{id}', 'CheckoutController@process')
             ->name('checkout_process')
             ->middleware(['auth', 'verified']);
