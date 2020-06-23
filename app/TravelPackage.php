@@ -16,6 +16,11 @@ class TravelPackage extends Model
         'type', 'price'
     ];
 
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'travel_packages_id', 'id');
+    }
+
     protected $hidden = [
 
     ];
@@ -35,10 +40,7 @@ class TravelPackage extends Model
         return $this->belongsTo(Category::class, 'location_category_id', 'id');
     }
 
-    public function comment()
-    {
-        return $this->hasMany(Comment::class, 'travel_packages_id', 'id');
-    }
+    
 
     
 

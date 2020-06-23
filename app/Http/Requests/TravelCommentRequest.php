@@ -24,8 +24,7 @@ class TravelCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'travel_packages_id' => 'required|integer|exists:travel_packages,id',
-            'user_id' => 'required|integer',
+            // 'user_id' => 'required|iteger',
             'comment' => 'required|max:256'
         ];
     }

@@ -21,6 +21,15 @@
                     </nav>
                 </div>
             </div>
+            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+            @endif
             <div class="row">
                 <div class="col-lg-8 pl-lg-0">
                     <div class="card card-details mb-1">
@@ -114,9 +123,10 @@
                 <div class="col-lg-8 pl-lg-0">
                     <div class="card card-details mb-1">
                         @auth
-                            <form action="{{ route('travel.comment.store', $item) }}" method="post">
+                            <form action="{{ route('detail.comment.store', $item) }}" method="post">
                                 @csrf
-                                <textarea class="form-control" id="" name="comment" cols="30" rows="2" placeholder="Berikan komentar anda..."></textarea>
+                                @method('POST')
+                                <textarea class="form-control" id="" name="comment" cols="30" rows="2" placeholder="Berikan komentar anda...">{{ old('comment') }}</textarea>
                                 <button class="btn btn-block btn-join-now" type="submit">Komentar!</button>
                             </form>
                         @endauth
@@ -128,7 +138,6 @@
                         <h1 class="mt-3">Komentar mereka...</h1>
                             @foreach ($item->comment()->get() as $comment)
                                 <div class="form-group row container mt-3">
-                                    <img src="https://ui-avatars.com/api/?name={{ $comment->user->name }}" alt="Name Account" height="60">
                                         <div class="text-left ml-2">
                                             {{ $comment->user->name }}
                                             <br>

@@ -25,8 +25,13 @@ Route::get('/travel-package/{category}', 'ProductController@category')
 Route::get('/detail/{slug}', 'DetailController@index')
             ->name('detail');
 
-Route::post('/detail/{slug}/comment', 'TravelPackageCommentController@store')
-            ->name('travel.comment.store');
+Route::post('/detail/{slug}/comment', 'DetailController@store')
+            ->name('detail.comment.store');
+
+Route::get('/profile', 'ProfileController@index')
+            ->name('user.profile');
+
+// Route::resource('detail', 'DetailController');
 
 Route::post('/checkout/{id}', 'CheckoutController@process')
             ->name('checkout_process')
