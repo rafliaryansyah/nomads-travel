@@ -27,12 +27,14 @@
                                 <div class="text-center">
                                     <img src="https://ui-avatars.com/api/?name={{ $user->name }}" alt="" class="w-25 mb-4">
                                 </div>
-                                <form action="#" method="POST">
+                                <form action="{{ route('user.profile.update') }}" method="POST">
+                                    @method('patch')
+                                    @csrf
                                     <div class="form-group">
         
-                                        <label for="email">Fullname</label>
+                                        <label for="name">Fullname</label>
         
-                                        <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="" aria-describedby="" required autocomplete="email" autofocus value="{{ $user->name }}">
+                                        <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="" aria-describedby="" required autocomplete="name" autofocus value="{{ $user->name }}">
                                         
                                         @error('name')
                                         <span class="invalid-feedback">
@@ -44,9 +46,9 @@
         
                                     <div class="form-group">
         
-                                        <label for="email">Username</label>
+                                        <label for="username">Username</label>
         
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="" name="username" aria-describedby="" required autocomplete="email" autofocus value="{{ $user->username }}" readonly>
+                                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="" name="username" aria-describedby="" required autocomplete="username" autofocus value="{{ $user->username }}" readonly>
         
                                         @error('username')
                                         <span class="invalid-feedback">
@@ -67,28 +69,6 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
-        
-                                    </div>
-        
-                                    <div class="form-group">
-        
-                                        <label for="password">Password</label>
-        
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="" name="password" name="" required autocomplete="current-password" value="{{ $user->password }}">
-        
-                                        @error('password')
-                                        <span class="invalid-feedback">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-        
-                                    </div>
-        
-                                    <div class="form-group">
-        
-                                        <label for="password">Confirm Password</label>
-        
-                                        <input type="password" class="form-control" id="" name="password_confirmation" required autocomplete="current-password">
         
                                     </div>
         

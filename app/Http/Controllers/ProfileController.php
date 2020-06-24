@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -13,6 +14,15 @@ class ProfileController extends Controller
         return view('pages.profile', [
             'user' => $request->user()
         ]);
+    }
+
+    public function update(UpdateProfileRequest $request)
+    {
+        $request->user()->update(
+            $request->all()
+        );
+
+        return redirect()->back();
     }
 
 }

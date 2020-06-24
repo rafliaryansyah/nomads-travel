@@ -32,6 +32,10 @@ Route::get('/profile', 'ProfileController@index')
             ->name('user.profile')
             ->middleware(['auth', 'verified']);
 
+Route::patch('/profile/update', 'ProfileController@update')
+            ->name('user.profile.update')
+            ->middleware(['auth', 'verified']);
+
 // Route::resource('detail', 'DetailController');
 
 Route::post('/checkout/{id}', 'CheckoutController@process')
