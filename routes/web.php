@@ -29,7 +29,8 @@ Route::post('/detail/{slug}/comment', 'DetailController@store')
             ->name('detail.comment.store');
 
 Route::get('/profile', 'ProfileController@index')
-            ->name('user.profile');
+            ->name('user.profile')
+            ->middleware(['auth', 'verified']);
 
 // Route::resource('detail', 'DetailController');
 

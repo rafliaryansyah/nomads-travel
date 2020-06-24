@@ -25,15 +25,14 @@
                     <div class="card card-details mb-1">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{ url('frontend/assets/images/logo.png') }}" alt="" class="w-50 mb-4">
+                                    <img src="https://ui-avatars.com/api/?name={{ $user->name }}" alt="" class="w-25 mb-4">
                                 </div>
-                                <form action="{{ route('register') }}" method="POST">
-                                    @csrf
+                                <form action="#" method="POST">
                                     <div class="form-group">
         
                                         <label for="email">Fullname</label>
         
-                                        <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="" aria-describedby="" required autocomplete="email" autofocus value="">
+                                        <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="" aria-describedby="" required autocomplete="email" autofocus value="{{ $user->name }}">
                                         
                                         @error('name')
                                         <span class="invalid-feedback">
@@ -47,7 +46,7 @@
         
                                         <label for="email">Username</label>
         
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="" name="username" aria-describedby="" required autocomplete="email" autofocus>
+                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="" name="username" aria-describedby="" required autocomplete="email" autofocus value="{{ $user->username }}" readonly>
         
                                         @error('username')
                                         <span class="invalid-feedback">
@@ -61,7 +60,7 @@
         
                                         <label for="email">Email Address</label>
         
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="" name="email" aria-describedby="" required autocomplete="email" autofocus>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="" name="email" aria-describedby="" required autocomplete="email" autofocus value="{{ $user->email }}">
         
                                         @error('email')
                                         <span class="invalid-feedback">
@@ -75,7 +74,7 @@
         
                                         <label for="password">Password</label>
         
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="" name="password" name="" required autocomplete="current-password">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="" name="password" name="" required autocomplete="current-password" value="{{ $user->password }}">
         
                                         @error('password')
                                         <span class="invalid-feedback">
@@ -94,7 +93,7 @@
                                     </div>
         
                                     <button class="btn btn-login btn-block" type="submit">
-                                        Register
+                                        Ubah
                                     </button>
                                 </form>
                             </div>

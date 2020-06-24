@@ -20,6 +20,11 @@
         <li class="nav-item mx-md-2">
           <a class="nav-link" href="{{ route('products') }}">Paket Travel</a>
         </li>
+        @auth
+        <li class="nav-item mx-md-2">
+          <a class="nav-link" href="{{ route('user.profile') }}">Profile</a>
+        </li>
+        @endauth
       </ul>
 
       @guest

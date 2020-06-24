@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::firstOrFail();
-        return view('pages.profile', compact('user'));
+        return view('pages.profile', [
+            'user' => $request->user()
+        ]);
     }
 
 }
