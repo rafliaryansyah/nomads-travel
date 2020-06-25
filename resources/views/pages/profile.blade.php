@@ -25,7 +25,7 @@
                     <div class="card card-details mb-1">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="https://ui-avatars.com/api/?name={{ $user->name }}" alt="" class="w-25 mb-4">
+                                    <img src="https://ui-avatars.com/api/?name={{ $user->username }}&background=081D4E&color=fff&rounded=true&size=1024" alt="" class="w-25 mb-4">
                                 </div>
                                 <form action="{{ route('user.profile.update') }}" method="POST">
                                     @method('patch')
