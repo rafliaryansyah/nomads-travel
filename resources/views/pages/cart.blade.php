@@ -63,7 +63,21 @@
                                             ${{ $item->travel_package->price }},00
                                         </td>
                                         <td class="align-middle">
-                                            {{ $item->transaction_status }}
+                                            @if ( $item->transaction_status == 'PENDING')
+                                                <span class="badge badge-warning">
+                                            @elseif ( $item->transaction_status == 'IN_CART')
+                                                <span class="badge badge-info">
+                                            @elseif ( $item->transaction_status == 'SUCCESS')
+                                                <span class="badge badge-success">
+                                            @elseif ( $item->transaction_status == 'FAILED')
+                                                <span class="badge badge-secondary">
+                                            @elseif ( $item->transaction_status == 'CANCEL')
+                                                <span class="badge badge-dark">
+                                            @else
+                                            <span>
+                                            @endif
+                                                {{ $item->transaction_status }}
+                                            
                                         </td>
                                     </tr>
                                     @empty
