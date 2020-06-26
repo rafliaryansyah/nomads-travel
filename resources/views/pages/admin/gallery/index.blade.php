@@ -30,7 +30,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->travel_package->title }}</td>
                                 <td>
-                                    <img src="{{ Storage::url($item->image) }}" alt="" style="width: 200px" class="img-thumbnail">
+                                    <img src="{{ Storage::url($item->image) }}" alt="Image Name" height="60">
                                 </td>
                                 <td>
                                     <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-info">

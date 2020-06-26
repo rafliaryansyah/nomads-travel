@@ -85,7 +85,7 @@ class TravelPackageController extends Controller
     {
         $item = TravelPackage::FindOrFail($id);
         $category = Category::all();
-        dd($item);
+        // dd($item);
         return view('pages.admin.travel-package.edit', compact('item', 'category'));
     }
 

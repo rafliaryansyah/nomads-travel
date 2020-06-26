@@ -210,6 +210,9 @@
                             <td style="width:550px;">
                             <img alt="" height="auto" src="{{ url($data->travel_package->galleries[0]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                             </td>
+                            {{-- <td style="width:550px;">
+                            <img alt="" height="auto" src="{{ url($data->travel_package->galleries[0]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                            </td> --}}
                           </tr>
                         </tbody>
                       </table>
@@ -274,7 +277,7 @@
                                 @foreach ($data->details as $item)
                                 <tr>
                                   <td><strong>{{ $item->username }}</strong></td>
-                                  <td style="text-align: right;">{{ $item->nationality }}</td>
+                                  <td style="text-align: right;">{{ $item->nationaility }}</td>
                                 </tr>
                                 @endforeach
                               </table>
@@ -292,7 +295,7 @@
                                 </tr>
                                 <tr>
                                   <td><strong>Date and Time</strong></td>
-                                  <td style="text-align: right;">{{ $data->travel_package->departure_date }}</td>
+                                  <td style="text-align: right;">{{ $data->travel_package->depatured_date }}</td>
                                 </tr>
                               </table>
                             </td>
@@ -302,7 +305,7 @@
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                 <tr>
                                   <td align="center" bgcolor="#FF9E53" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#FF9E53;" valign="middle">
-                                    <a href="{{ url('checkout/' . $data->id ) }}" style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
+                                    <a href="{{ url('cart/') }}" style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sanf-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
                                   </td>
                                 </tr>
                               </table>
@@ -404,7 +407,7 @@
                       <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                         <tr>
                           <td style="width: 50px;">
-                            <img src="{{ url('frontend/images/ic_support@2x.png') }}" width="50px">
+                            <img src="{{ url('frontend/assets/images/ic_support@2x.png') }}" width="50px">
                           </td>
                           <td style="font-size: 18px; padding-left: 10px; color: #071C4D;font-family: Assistant, Helvetica, Arial, sans-serif"> support@nomads.id <br> 021-2019-2022 </td>
                         </tr>

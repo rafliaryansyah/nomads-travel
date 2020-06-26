@@ -25,6 +25,12 @@ class TravelPackage extends Model
 
     ];
 
+    public function packages()
+    {
+        return $this->belongsTo( TravelPackage::class, 'id', 'travel_packages_id' );
+    }   
+
+
     public function details()
     {
         return $this->hasMany( TransactionDetail::class, 'transactions_id', 'id' );
