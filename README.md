@@ -9,5 +9,13 @@ Step by Step Install
 7. run php artisan key:generate
 8. Terakhir run php artisan key:generate
 
+User role Admin =
+email   : admin@gmail.com
+password: admin
+
+User role User =
+email   : johndoe@gmail.com
+password: 123456
+
 Dokumentasi Project
 link : https://drive.google.com/file/d/1WfVarPtaGR1KOLzUGRoD2e3l2RHedZ2T/view
